@@ -1,0 +1,260 @@
+/* Shared stylesheet for juan-zhong.github.io/me, /art and /teachtolearn.
+   Keep the three copies identical. */
+
+/* Fonts: Optima for Latin text; Kaiti (楷体) for all Chinese, matching the CV;
+   Charis SIL for IPA. LXGW WenKai is a fallback for the Chinese name on
+   devices without Kaiti. Self-hosted subsets, OFL licensed (see fonts/). */
+@font-face {
+    font-family: 'Charis SIL';
+    src: url('fonts/charis-sil-ipa.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LXGW WenKai';
+    src: url('fonts/lxgw-wenkai-name.woff2') format('woff2');
+    font-display: swap;
+}
+
+:root {
+    --font: Optima, 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai', serif;
+    --font-zh: 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai', serif;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font);
+    background-color: #fdfdfd;
+    color: #333;
+    line-height: 1.7;
+    letter-spacing: 0.05em;
+}
+
+header {
+    background-color: #fff;
+    text-align: center;
+    padding: 60px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Navigation: main nav (homepage) and page nav (other pages) share one style */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.page-nav {
+    text-align: center;
+    padding: 18px 16px 0;
+    line-height: 2.2;
+}
+
+.page-nav a { margin: 0 10px; }
+
+/* Header type scale, after the Columbia diploma */
+h1 {
+    font-size: 44px;
+    font-family: var(--font);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #222;
+    margin-top: 20px;
+}
+
+header .ipa { font-size: 18px; }
+
+header .name-zh {
+    font-family: var(--font-zh);
+    font-size: 22px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 0.12em;
+}
+
+header .meta {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.ipa { font-family: 'Charis SIL', serif; }
+
+.zh { font-family: var(--font-zh); }
+
+.content-section {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+h2 {
+    font-size: 32px;
+    font-family: var(--font);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #000;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 18px;
+    font-family: var(--font);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #666;
+    font-family: var(--font);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    margin-bottom: 40px;
+}
+
+/* Publication entries */
+p.pub-entry {
+    font-size: 14px !important;
+    color: #888 !important;
+    padding-left: 14px;
+    border-left: 2px solid #e0e0e0;
+    line-height: 1.7 !important;
+    margin-bottom: 12px !important;
+}
+
+p.pub-entry a {
+    color: #555;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+p.pub-entry a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.teaching-item .detail {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #888;
+    text-decoration: none;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery img {
+    width: 45%;
+    height: auto;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 0.1em;
+    font-family: var(--font);
+    text-transform: uppercase;
+}
+
+footer .license {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 0.03em;
+    margin-top: 6px;
+    text-transform: none;
+}
+
+/* Tagline under name */
+.tagline {
+    margin: 16px auto 24px;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Back-to-top button */
+.to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    color: #777;
+    font-size: 18px;
+    line-height: 38px;
+    text-align: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility .3s, color .2s, border-color .2s;
+    z-index: 100;
+}
+
+.to-top.show { opacity: 1; visibility: visible; }
+.to-top:hover { color: #000; border-color: #000; }
+
+@media (max-width: 600px) {
+    .content-section { padding: 56px 20px; }
+    h1 { font-size: 34px; }
+    nav ul li { margin-right: 16px; }
+}
