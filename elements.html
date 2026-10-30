@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elements · Art · Juan Zhong</title>
+    <meta name="description" content="Photography by Juan Zhong.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles (shared typography lives in styles.css) */
+        main h2, main h3, header, .page-nav { text-align: center; }
+        main h3 .zh { display: block; margin-top: 6px; }
+        main h2 .num { display: block; margin-bottom: 6px; }
+        main h2 .zh { display: block; margin-top: 8px; font-size: 0.6em; }
+        main h3 { margin: 64px 0 28px; }
+        main h2 + h3 { margin-top: 0; }
+        figure { margin: 0 0 56px; text-align: center; }
+        figure img { display: block; margin: 0 auto; max-width: 100%; max-height: 85vh; width: auto; height: auto; cursor: zoom-in; }
+        .lightbox { position: fixed; inset: 0; background: rgba(253,253,253,.97); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 40px 64px; z-index: 200; }
+        .lightbox.open { display: flex; }
+        .lightbox img { max-width: 100%; max-height: calc(100vh - 140px); width: auto; height: auto; }
+        .lightbox p { margin: 18px 0 0; font-size: 14px; color: #777; letter-spacing: 0.12em; text-transform: uppercase; }
+        .lightbox button { position: absolute; background: none; border: 0; font: inherit; font-size: 26px; color: #777; cursor: pointer; padding: 12px; }
+        .lightbox button:hover { color: #000; }
+        .lb-close { top: 12px; right: 16px; }
+        .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
+        .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
+        @media (max-width: 600px) { .lightbox { padding: 40px 12px; } .lb-prev, .lb-next { top: auto; bottom: 8px; transform: none; } }
+        /* Page nav: each series with its studies listed underneath */
+        .nav-cols { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 56px; padding-top: 22px; line-height: 1.6; }
+        .nav-cols .col { display: flex; flex-direction: column; align-items: center; }
+        .nav-cols .main { margin: 0 0 6px; }
+        .nav-cols .subs a { display: block; margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: none; color: #888; }
+        .nav-cols .subs a:hover, .nav-cols .main:hover { color: #000; }
+        @media (max-width: 600px) { .nav-cols { gap: 22px; padding: 16px 12px 0; } .nav-cols .subs a { font-size: 11px; } }
+        /* Chinese title in the self-hosted LXGW WenKai subset (same Kaiti look as the homepage name) */
+        @font-face { font-family: 'LXGW WenKai Art'; src: url('fonts/lxgw-wenkai-art.woff2') format('woff2'); font-display: swap; }
+        :root { --font-zh: 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai Art', 'LXGW WenKai', serif; }
+        header h1 a { color: inherit; }
+        header .name-zh { margin-top: 10px; }
+        .nav-cols a[aria-current="page"] { border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+    <nav class="page-nav nav-cols">
+        <div class="col">
+            <a class="main" href="elements.html" aria-current="page">Elements</a>
+            <div class="subs">
+                <a href="elements.html#color">Color</a>
+                <a href="elements.html#shape">Shape</a>
+                <a href="elements.html#texture">Texture</a>
+            </div>
+        </div>
+        <div class="col">
+            <a class="main" href="relations.html">Relations</a>
+            <div class="subs">
+                <a href="relations.html#coordination">Coordination</a>
+                <a href="relations.html#collision">Collision</a>
+                <a href="relations.html#interaction">Interaction</a>
+            </div>
+        </div>
+        <div class="col">
+            <a class="main" href="status.html">Status</a>
+            <div class="subs">
+                <a href="status.html#light-shadow">Light and Shadow</a>
+                <a href="status.html#moving">Moving</a>
+                <a href="status.html#still">Still</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1><a href="./">A Typology of Momentary Beings</a></h1>
+        <h3 class="name-zh">关于片刻的剖析</h3>
+    </header>
+
+    <main>
+
+        <section id="elements" class="content-section">
+            <h2>Elements <span class="zh">成分</span></h2>
+            <h3 id="color"><span class="num">01</span> Color <span class="zh">色彩</span></h3>
+            <figure><img src="photos/autumn-leaves.jpg" alt="orange, yellow and green" loading="lazy" data-caption="Photograph · 2022 · Letchworth"></figure>
+            <figure><img src="photos/seattle.jpeg" alt="forest green" loading="lazy" data-caption="Photograph · 2022 · Washington"></figure>
+            <figure><img src="photos/moonriver.jpg" alt="blue" loading="lazy" data-caption="Photograph · 2018 · Brighton"></figure>
+            <figure><img src="photos/yellowred.jpg" alt="yellow and red" loading="lazy" data-caption="Photograph · 2023 · Anyuan"></figure>
+            <figure><img src="photos/dr-20250816.jpg" alt="orange" loading="lazy" data-caption="Photograph · 2025 · Samaná"></figure>
+            <figure><img src="photos/buf-20241006.jpg" alt="golden" loading="lazy" data-caption="Photograph · 2024 · Buffalo"></figure>
+            <figure><img src="photos/rainbow.jpg" alt="grass green" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
+            <figure><img src="photos/wny-red-houses.jpg" alt="The red wall of a barn with a quilt block and white windows" loading="lazy" data-caption="Photograph · 2023 · Western New York"></figure>
+             <figure><img src="photos/uws.jpg" alt="A church tower lit orange at sunset above a crosswalk" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
+            <figure><img src="photos/nyc-glass-highlines.jpg" alt="Glass and orange towers rising into the sky" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
+            <figure><img src="photos/hotel.jpg" alt="A building facade with windows lit in many colors at night" loading="lazy" data-caption="Photograph · 2017 · Singapore"></figure>
+            <h3 id="shape"><span class="num">02</span> Shape <span class="zh">构形</span></h3>
+            <figure><img src="photos/snow.jpg" alt="Wind-carved ridges in a field of snow" loading="lazy" data-caption="Photograph · 2022 · Buffalo"></figure> 
+            <figure><img src="photos/beijing-daxing.jpg" alt="Sweeping curved ceiling lines opening to a skylight" loading="lazy" data-caption="Photograph · 2023 · Beijing"></figure>
+            <figure><img src="photos/patels.jpg" alt="Close-up of a pale pink rose" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/nyc-bricks.jpg" alt="Brown brick buildings stacked across the skyline" loading="lazy" data-caption="Photograph · 2023 · New York"></figure>
+            <figure><img src="photos/buf-20241213.jpg" alt="Building facades" loading="lazy" data-caption="Photograph · 2024 · Buffalo"></figure>
+            <figure><img src="photos/courtauld-2023.jpg" alt="A spiral staircase with a blue and white balustrade, seen from below" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
+            <figure><img src="photos/new-york-wtc.jpg" alt="Black-and-white: the ribs of the Oculus with flags" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
+            <figure><img src="photos/new-york-wtc-lines.jpg" alt="Black-and-white: the white ribs of the Oculus over a lone figure" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
+            <figure><img src="photos/akg-lines.jpg" alt="Black-and-white: three people walking past broad steps" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/la.jpg" alt="Black-and-white: curved steel walls of a concert hall and a lamppost" loading="lazy" data-caption="Photograph · 2021 · Los Angeles"></figure>
+            <figure><img src="photos/la-museum.jpg" alt="Black-and-white: a honeycomb facade with a single opening" loading="lazy" data-caption="Photograph · 2021 · Los Angeles"></figure>
+            <figure><img src="photos/beijing-subway.jpg" alt="Black-and-white: a station seen through curved openings" loading="lazy" data-caption="Photograph · 2019 · Beijing"></figure>
+            <figure><img src="photos/singapore.jpg" alt="Thin branching lines radiating against a pale sky" loading="lazy" data-caption="Photograph · 2017 · Singapore"></figure>
+            <figure><img src="photos/birds-lines.jpg" alt="Birds gathered on power lines across a pale sky" loading="lazy" data-caption="Photograph · 2018 · Austin"></figure>
+            <h3 id="texture"><span class="num">03</span> Texture <span class="zh">质地</span></h3>
+            <figure><img src="photos/glasswork.jpeg" alt="My handmade glass cup" loading="lazy" data-caption="Glasswork · 2024 · handmade in Jingdezhen"></figure>
+            <figure><img src="photos/roses.jpg" alt="Two pale pink roses against a grey wall" loading="lazy" data-caption="Photograph · 2023 · Austin"></figure>
+            <figure><img src="photos/fresh-tulip.jpg" alt="Yellow tulips in full bloom" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/dried-tulip.jpg" alt="The same yellow tulips, drooping and drying" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+        </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo">
+        <button class="lb-close" type="button" aria-label="Close">×</button>
+        <button class="lb-prev" type="button" aria-label="Previous photo">←</button>
+        <img alt="">
+        <p></p>
+        <button class="lb-next" type="button" aria-label="Next photo">→</button>
+    </div>
+
+    <a href="#" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</a>
+    <script>
+        (function () {
+            var b = document.getElementById('toTop');
+            function f() { b.classList.toggle('show', window.scrollY > 600); }
+            window.addEventListener('scroll', f, { passive: true }); f();
+            b.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            var imgs = Array.prototype.slice.call(document.querySelectorAll('main figure img'));
+            var lb = document.getElementById('lightbox'), big = lb.querySelector('img'), cap = lb.querySelector('p'), i = 0, last = null;
+            function show(n) {
+                i = (n + imgs.length) % imgs.length;
+                big.src = imgs[i].src; big.alt = imgs[i].alt;
+                var c = imgs[i].getAttribute('data-caption') || '';
+                cap.textContent = c === '—' ? '' : c;
+            }
+            function open(n) { last = document.activeElement; show(n); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.lb-close').focus(); }
+            function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (last) last.focus(); }
+            imgs.forEach(function (im, n) {
+                im.tabIndex = 0;
+                im.addEventListener('click', function () { open(n); });
+                im.addEventListener('keydown', function (e) { if (e.key === 'Enter') open(n); });
+            });
+            lb.querySelector('.lb-close').addEventListener('click', close);
+            lb.querySelector('.lb-prev').addEventListener('click', function () { show(i - 1); });
+            lb.querySelector('.lb-next').addEventListener('click', function () { show(i + 1); });
+            lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+            document.addEventListener('keydown', function (e) {
+                if (!lb.classList.contains('open')) return;
+                if (e.key === 'Escape') close();
+                else if (e.key === 'ArrowLeft') show(i - 1);
+                else if (e.key === 'ArrowRight') show(i + 1);
+            });
+        })();
+    </script>
+
+    <footer>
+        <p>Art · by <a href="https://juan-zhong.github.io/me/">Juan Zhong</a></p>
+        <p class="license">Art © 2026 Juan Zhong. All rights reserved. Site code: CC0.</p>
+    </footer>
+</body>
+</html>

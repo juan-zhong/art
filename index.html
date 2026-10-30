@@ -11,6 +11,7 @@
         main h2, main h3, header, .page-nav { text-align: center; }
         main h3 .zh { display: block; margin-top: 6px; }
         main h2 .num { display: block; margin-bottom: 6px; }
+        main h2 .zh { display: block; margin-top: 8px; font-size: 0.6em; }
         main h3 { margin: 64px 0 28px; }
         main h2 + h3 { margin-top: 0; }
         figure { margin: 0 0 56px; text-align: center; }
@@ -26,134 +27,65 @@
         .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
         @media (max-width: 600px) { .lightbox { padding: 40px 12px; } .lb-prev, .lb-next { top: auto; bottom: 8px; transform: none; } }
         /* Page nav: each series with its studies listed underneath */
-        .nav-cols { display: flex; justify-content: center; align-items: flex-start; gap: 56px; padding-top: 22px; line-height: 1.6; }
+        .nav-cols { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 56px; padding-top: 22px; line-height: 1.6; }
         .nav-cols .col { display: flex; flex-direction: column; align-items: center; }
         .nav-cols .main { margin: 0 0 6px; }
         .nav-cols .subs a { display: block; margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: none; color: #888; }
         .nav-cols .subs a:hover, .nav-cols .main:hover { color: #000; }
         @media (max-width: 600px) { .nav-cols { gap: 22px; padding: 16px 12px 0; } .nav-cols .subs a { font-size: 11px; } }
+        /* Chinese title in the self-hosted LXGW WenKai subset (same Kaiti look as the homepage name) */
+        @font-face { font-family: 'LXGW WenKai Art'; src: url('fonts/lxgw-wenkai-art.woff2') format('woff2'); font-display: swap; }
+        :root { --font-zh: 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai Art', 'LXGW WenKai', serif; }
+        header h1 a { color: inherit; }
+        header .name-zh { margin-top: 10px; }
+        .nav-cols a[aria-current="page"] { border-bottom: 1px solid #333; }
     </style>
 </head>
 <body>
 
     <nav class="page-nav nav-cols">
         <div class="col">
-            <a class="main" href="#basics">Basics</a>
+            <a class="main" href="elements.html">Elements</a>
             <div class="subs">
-                <a href="#color">Color</a>
-                <a href="#shape">Shape</a>
-                <a href="#texture">Texture</a>
+                <a href="elements.html#color">Color</a>
+                <a href="elements.html#shape">Shape</a>
+                <a href="elements.html#texture">Texture</a>
             </div>
         </div>
         <div class="col">
-            <a class="main" href="#momentary">Moments</a>
+            <a class="main" href="relations.html">Relations</a>
             <div class="subs">
-                <a href="#light-shadow">Light and Shadow</a>
-                <a href="#movement-stillness">Movement and Stillness</a>
-                <a href="#interaction">Interaction</a>
+                <a href="relations.html#coordination">Coordination</a>
+                <a href="relations.html#collision">Collision</a>
+                <a href="relations.html#interaction">Interaction</a>
+            </div>
+        </div>
+        <div class="col">
+            <a class="main" href="status.html">Status</a>
+            <div class="subs">
+                <a href="status.html#light-shadow">Light and Shadow</a>
+                <a href="status.html#moving">Moving</a>
+                <a href="status.html#still">Still</a>
             </div>
         </div>
     </nav>
 
     <header>
-        <h1>Art</h1>
+        <h1>A Typology of Momentary Beings</h1>
+        <h3 class="name-zh">关于片刻的剖析</h3>
     </header>
 
     <main>
 
-        <section id="basics" class="content-section">
-            <h2>Basics</h2>
-            <h3 id="color"><span class="num">01</span> Color <span class="zh">色彩</span></h3>  
-            <figure><img src="photos/autumn-leaves.jpg" alt="orange, yellow and green" loading="lazy" data-caption="2022"></figure>
-            <figure><img src="photos/seattle.jpeg" alt="forest green" loading="lazy" data-caption="2022 · Washington"></figure>
-            <figure><img src="photos/moonriver.jpg" alt="blue" loading="lazy" data-caption="2018 · Brighton"></figure>
-            <figure><img src="photos/yellowred.jpg" alt="yellow and red" loading="lazy" data-caption="—"></figure>
-            <figure><img src="photos/dr-20250816.jpg" alt="orange" loading="lazy" data-caption="2025 · Santa Bárbara de Samaná"></figure>
-            <figure><img src="photos/buf-20241006.jpg" alt="golden" loading="lazy" data-caption="2024 · Buffalo"></figure>
-            <figure><img src="photos/rainbow.jpg" alt="grass green" loading="lazy" data-caption="2022 · New York"></figure>
-            <figure><img src="photos/wny-red-houses.jpg" alt="The red wall of a barn with a quilt block and white windows" loading="lazy" data-caption="2023 · Western New York"></figure>
-
-             <figure><img src="photos/uws.jpg" alt="A church tower lit orange at sunset above a crosswalk" loading="lazy" data-caption="New York"></figure>
-            <figure><img src="photos/nyc-glass-highlines.jpg" alt="Glass and orange towers rising into the sky" loading="lazy" data-caption="New York"></figure>
-            <figure><img src="photos/hotel.jpg" alt="A building facade with windows lit in many colors at night" loading="lazy" data-caption="—"></figure>
-
-        
-            <h3 id="shape"><span class="num">02</span> Shape <span class="zh">构形</span></h3>
-            <figure><img src="photos/snow.jpg" alt="Wind-carved ridges in a field of snow" loading="lazy" data-caption="2022"></figure> 
-            <figure><img src="photos/beijing-daxing.jpg" alt="Sweeping curved ceiling lines opening to a skylight" loading="lazy" data-caption="2023 · Beijing"></figure>
-            <figure><img src="photos/patels.jpg" alt="Close-up of a pale pink rose" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/nyc-bricks.jpg" alt="Brown brick buildings stacked across the skyline" loading="lazy" data-caption="2023 · New York"></figure>
-            <figure><img src="photos/buf-20241213.jpg" alt="Building facades" loading="lazy" data-caption="2024 · Buffalo"></figure>
-            <figure><img src="photos/courtauld-2023.jpg" alt="A spiral staircase with a blue and white balustrade, seen from below" loading="lazy" data-caption="2023 · London"></figure>
-            <figure><img src="photos/new-york-wtc.jpg" alt="Black-and-white: the ribs of the Oculus with flags" loading="lazy" data-caption="New York"></figure>
-            <figure><img src="photos/new-york-wtc-lines.jpg" alt="Black-and-white: the white ribs of the Oculus over a lone figure" loading="lazy" data-caption="New York"></figure>
-            <figure><img src="photos/akg-lines.jpg" alt="Black-and-white: three people walking past broad steps" loading="lazy" data-caption="2023 · Buffalo"></figure>
-            <figure><img src="photos/la.jpg" alt="Black-and-white: curved steel walls of a concert hall and a lamppost" loading="lazy" data-caption="Los Angeles"></figure>
-            <figure><img src="photos/la-museum.jpg" alt="Black-and-white: a honeycomb facade with a single opening" loading="lazy" data-caption="Los Angeles"></figure>
-            <figure><img src="photos/beijing-subway.jpg" alt="Black-and-white: a station seen through curved openings" loading="lazy" data-caption="Beijing"></figure>
-            <figure><img src="photos/singapore.jpg" alt="Thin branching lines radiating against a pale sky" loading="lazy" data-caption="Singapore"></figure>
-            <figure><img src="photos/birds-lines.jpg" alt="Birds gathered on power lines across a pale sky" loading="lazy" data-caption="—"></figure>
-            
-             <h3 id="texture"><span class="num">03</span> Texture <span class="zh">质地</span></h3>
-            <figure><img src="photos/glasswork.jpeg" alt="My handmade glass cup" loading="lazy" data-caption="2024 · Jingdezhen"></figure>
-            <figure><img src="photos/roses.jpg" alt="Two pale pink roses against a grey wall" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/fresh-tulip.jpg" alt="Yellow tulips in full bloom" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/dried-tulip.jpg" alt="The same yellow tulips, drooping and drying" loading="lazy" data-caption="2023"></figure>
-        </section>
-
-        <section id="momentary" class="content-section">
-            <h2>A Typology of Momentary Beings</h2>
-            <h3 id="light-shadow"><span class="num">01</span> Light and Shadow <span class="zh">光影</span></h3>
-            <figure><img src="photos/kent423.jpg" alt="Sunlight on a wall above chairs" loading="lazy" data-caption="2022 · New York"></figure>
-            <figure><img src="photos/light.jpg" alt="Statue in a beam of light" loading="lazy" data-caption="2018 · New York"></figure>
-                        <figure><img src="photos/tulip.jpg" alt="Tulips" loading="lazy" data-caption="2022 · New York"></figure>
-                        <figure><img src="photos/london-2023.jpg" alt="Two people in the shadow of a stone colonnade" loading="lazy" data-caption="2023 · London"></figure>
-                        <figure><img src="photos/london-summer.jpg" alt="People sitting outside under trees beside a red telephone box" loading="lazy" data-caption="2023 · London"></figure>
-                        <figure><img src="photos/courtauld-window.jpg" alt="Light through a tall arched window onto a bench" loading="lazy" data-caption="2023 · London"></figure>
-                        <figure><img src="photos/akg.jpg" alt="Black-and-white: Ionic columns of a museum facade" loading="lazy" data-caption="2023 · Buffalo"></figure>
-            
-
-            <figure><img src="photos/london-street-reading-under-tree.jpg" alt="A woman reading under a plane tree among yellow chairs" loading="lazy" data-caption="2023 · London"></figure>
-
-            <h3 id="movement-stillness"><span class="num">02</span> Movement and Stillness <span class="zh">动静</span></h3>
-                        <figure><img src="photos/burningbooks.jpg" alt="A bookshop called Burning Books on a street corner" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/themet.jpg" alt="Birds on bare branches" loading="lazy" data-caption="2022 · New York"></figure>
-            <figure><img src="photos/sea.jpg" alt="Waves at sunset" loading="lazy" data-caption="2022 · Los Angeles"></figure>
-                        <figure><img src="photos/nyc-20210828.jpg" alt="Street musicians" loading="lazy" data-caption="2021 · New York"></figure>
-            <figure><img src="photos/motion.jpg" alt="players and passengers" loading="lazy" data-caption="—"></figure>
-                        <figure><img src="photos/dr-20250811.jpg" alt="Street market" loading="lazy" data-caption="2025"></figure>
-                        <figure><img src="photos/wny-roads.jpg" alt="A winding paved path between mown fields" loading="lazy" data-caption="2023 · Western New York"></figure>
-            
-            <figure><img src="photos/highway.jpg" alt="Black-and-white: a highway interchange curving through trees" loading="lazy" data-caption="—"></figure>
-            <figure><img src="photos/wny-tree.jpg" alt="A bare tree alone in a field" loading="lazy" data-caption="2023 · Western New York"></figure>
-
-            <h3 id="interaction"><span class="num">03</span> Interaction <span class="zh">互动</span></h3>
-                        <figure><img src="photos/london-street-woman-reading-under-tree.jpg" alt="A woman reading by a railing under a tree" loading="lazy" data-caption="2023 · London"></figure>
-                        <figure><img src="photos/courtauld-woman-on-stairs.jpg" alt="A woman descending a curved staircase, seen from above" loading="lazy" data-caption="2023 · London"></figure>
-            <figure><img src="photos/sf-walking-0250705.jpg" alt="Walking past a red utility box" loading="lazy" data-caption="2025 · San Francisco"></figure>
-
-            <figure><img src="photos/incircles.jpg" alt="Black-and-white: a band playing outdoors under trees" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/calgary.jpg" alt="Black-and-white: a wire-mesh head sculpture above rows of parked cars" loading="lazy" data-caption="2023 · Calgary"></figure>
-            <figure><img src="photos/met-shades.jpg" alt="Shade over a stone building" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/a-man-and-a-dog-nyc-20221124.jpg" alt="A man and a dog" loading="lazy" data-caption="2022 · New York"></figure>
-            <figure><img src="photos/a-man-and-a-dog-nyc-20250620.jpg" alt="A man and a dog" loading="lazy" data-caption="2025 · New York"></figure>
-            <figure><img src="photos/nyc-20230802.jpg" alt="Two people on a bench" loading="lazy" data-caption="2023 · New York"></figure>
-            <figure><img src="photos/sf-20250705.jpg" alt="Two people on a sidewalk" loading="lazy" data-caption="2025 · San Francisco"></figure>
-            <figure><img src="photos/men.jpg" alt="A man by the water" loading="lazy" data-caption="—"></figure>
-            <figure><img src="photos/ay-market.jpg" alt="Shoppers at a meat stall in a market" loading="lazy" data-caption="2023 · Anyuan"></figure>
-            <figure><img src="photos/courtauld-door.jpg" alt="A car's headlights in a dark stone archway" loading="lazy" data-caption="2023 · London"></figure>
-        </section>
-        
-        <section id="to be categorized" class="content-section">
-            <h2>to be categorized</h2>
-            <figure><img src="photos/central-park-turtle.jpg" alt="Two turtles basking on a rock" loading="lazy" data-caption="2023 · New York"></figure>
-            <figure><img src="photos/nyc-mist.jpg" alt="Midtown towers fading into mist" loading="lazy" data-caption="2023 · New York"></figure>
-            <figure><img src="photos/nyc-shapes.jpg" alt="The Empire State Building and Chrysler spire under a dark sky" loading="lazy" data-caption="2023 · New York"></figure>
-            <figure><img src="photos/wny.jpg" alt="A long red barn under a wide evening sky" loading="lazy" data-caption="2023 · Western New York"></figure>
-            <figure><img src="photos/oneway.jpg" alt="One Way and Do Not Enter signs against a stone wall" loading="lazy" data-caption="2023"></figure>
-            <figure><img src="photos/buffalo-car-building.jpg" alt="A white car parked below an ornate terracotta building" loading="lazy" data-caption="2023 · Buffalo"></figure>
-            <figure><img src="photos/uws-subway.jpg" alt="Elevated subway tracks leading into the city at dusk" loading="lazy" data-caption="New York"></figure>
-
+        <section id="underspecified" class="content-section">
+            <h2>Underspecified</h2>
+            <figure><img src="photos/central-park-turtle.jpg" alt="Two turtles basking on a rock" loading="lazy" data-caption="Photograph · 2023 · New York"></figure>
+            <figure><img src="photos/nyc-mist.jpg" alt="Midtown towers fading into mist" loading="lazy" data-caption="Photograph · 2023 · New York"></figure>
+            <figure><img src="photos/nyc-shapes.jpg" alt="The Empire State Building and Chrysler spire under a dark sky" loading="lazy" data-caption="Photograph · 2023 · New York"></figure>
+            <figure><img src="photos/wny.jpg" alt="A long red barn under a wide evening sky" loading="lazy" data-caption="Photograph · 2023 · Western New York"></figure>
+            <figure><img src="photos/oneway.jpg" alt="One Way and Do Not Enter signs against a stone wall" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/buffalo-car-building.jpg" alt="A white car parked below an ornate terracotta building" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/uws-subway.jpg" alt="Elevated subway tracks leading into the city at dusk" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
         </section>
 
     </main>
