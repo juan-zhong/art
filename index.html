@@ -25,14 +25,34 @@
         .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
         .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
         @media (max-width: 600px) { .lightbox { padding: 40px 12px; } .lb-prev, .lb-next { top: auto; bottom: 8px; transform: none; } }
+        /* Page nav: each series with its studies listed underneath */
+        .nav-cols { display: flex; justify-content: center; align-items: flex-start; gap: 56px; padding-top: 22px; line-height: 1.6; }
+        .nav-cols .col { display: flex; flex-direction: column; align-items: center; }
+        .nav-cols .main { margin: 0 0 6px; }
+        .nav-cols .subs a { display: block; margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: none; color: #888; }
+        .nav-cols .subs a:hover, .nav-cols .main:hover { color: #000; }
+        @media (max-width: 600px) { .nav-cols { gap: 22px; padding: 16px 12px 0; } .nav-cols .subs a { font-size: 11px; } }
     </style>
 </head>
 <body>
 
-    <nav class="page-nav">
-        <a href="#basics">Basics</a>
-        <a href="#momentary">Moments</a>
-        <a href="#untitled">Untitled</a>
+    <nav class="page-nav nav-cols">
+        <div class="col">
+            <a class="main" href="#basics">Basics</a>
+            <div class="subs">
+                <a href="#color">Color</a>
+                <a href="#shape">Shape</a>
+                <a href="#material">Material</a>
+            </div>
+        </div>
+        <div class="col">
+            <a class="main" href="#momentary">Moments</a>
+            <div class="subs">
+                <a href="#light-shadow">Light and Shadow</a>
+                <a href="#movement-stillness">Movement and Stillness</a>
+                <a href="#interaction">Interaction</a>
+            </div>
+        </div>
     </nav>
 
     <header>
@@ -43,7 +63,7 @@
 
         <section id="basics" class="content-section">
             <h2>Basics</h2>
-            <h3><span class="num">01</span> Color <span class="zh">色彩</span></h3>  
+            <h3 id="color"><span class="num">01</span> Color <span class="zh">色彩</span></h3>  
                         <figure><img src="photos/autumn-leaves.jpg" alt="orange, yellow and green" loading="lazy" data-caption="2022"></figure>
             <figure><img src="photos/seattle.jpeg" alt="forest green" loading="lazy" data-caption="2022 · Washington"></figure>
             <figure><img src="photos/moonriver.jpg" alt="blue" loading="lazy" data-caption="2018 · Brighton"></figure>
@@ -59,7 +79,7 @@
 
             <figure><img src="photos/courtauld-woman-on-stairs.jpg" alt="A woman descending a curved staircase, seen from above" loading="lazy" data-caption="2023 · London"></figure>
          
-            <h3><span class="num">02</span> Shape <span class="zh">构形</span></h3>
+            <h3 id="shape"><span class="num">02</span> Shape <span class="zh">构形</span></h3>
             <figure><img src="photos/snow.jpg" alt="Wind-carved ridges in a field of snow" loading="lazy" data-caption="2022"></figure> 
             <figure><img src="photos/beijing-daxing.jpg" alt="Sweeping curved ceiling lines opening to a skylight" loading="lazy" data-caption="2023 · Beijing"></figure>
             <figure><img src="photos/patels.jpg" alt="Close-up of a pale pink rose" loading="lazy" data-caption="2023"></figure>
@@ -75,13 +95,13 @@
             <figure><img src="photos/singapore.jpg" alt="Thin branching lines radiating against a pale sky" loading="lazy" data-caption="Singapore"></figure>
             <figure><img src="photos/birds-lines.jpg" alt="Birds gathered on power lines across a pale sky" loading="lazy" data-caption="—"></figure>
             
-             <h3><span class="num">03</span> Material <span class="zh">质地</span></h3>
+             <h3 id="material"><span class="num">03</span> Material <span class="zh">质地</span></h3>
             <figure><img src="photos/glasswork.jpeg" alt="My handmade glass cup" loading="lazy" data-caption="2024 · Jingdezhen"></figure>
         </section>
 
         <section id="momentary" class="content-section">
             <h2>A Typology of Momentary Beings</h2>
-            <h3><span class="num">01</span> Light and Shadow <span class="zh">光影</span></h3>
+            <h3 id="light-shadow"><span class="num">01</span> Light and Shadow <span class="zh">光影</span></h3>
             <figure><img src="photos/kent423.jpg" alt="Sunlight on a wall above chairs" loading="lazy" data-caption="2022 · New York"></figure>
             <figure><img src="photos/light.jpg" alt="Statue in a beam of light" loading="lazy" data-caption="2018 · New York"></figure>
                         <figure><img src="photos/tulip.jpg" alt="Tulips" loading="lazy" data-caption="2022 · New York"></figure>
@@ -93,7 +113,7 @@
 
             <figure><img src="photos/london-street-reading-under-tree.jpg" alt="A woman reading under a plane tree among yellow chairs" loading="lazy" data-caption="2023 · London"></figure>
 
-            <h3><span class="num">02</span> Movement and Stillness <span class="zh">动静</span></h3>
+            <h3 id="movement-stillness"><span class="num">02</span> Movement and Stillness <span class="zh">动静</span></h3>
                         <figure><img src="photos/burningbooks.jpg" alt="A bookshop called Burning Books on a street corner" loading="lazy" data-caption="2023"></figure>
             <figure><img src="photos/themet.jpg" alt="Birds on bare branches" loading="lazy" data-caption="2022 · New York"></figure>
             <figure><img src="photos/sea.jpg" alt="Waves at sunset" loading="lazy" data-caption="2022 · Los Angeles"></figure>
@@ -105,7 +125,7 @@
             <figure><img src="photos/highway.jpg" alt="Black-and-white: a highway interchange curving through trees" loading="lazy" data-caption="—"></figure>
             <figure><img src="photos/wny-tree.jpg" alt="A bare tree alone in a field" loading="lazy" data-caption="2023 · Western New York"></figure>
 
-            <h3><span class="num">03</span> Interaction <span class="zh">互动</span></h3>
+            <h3 id="interaction"><span class="num">03</span> Interaction <span class="zh">互动</span></h3>
             <figure><img src="photos/sf-walking-0250705.jpg" alt="Walking past a red utility box" loading="lazy" data-caption="2025 · San Francisco"></figure>
 
             <figure><img src="photos/incircles.jpg" alt="Black-and-white: a band playing outdoors under trees" loading="lazy" data-caption="2023"></figure>
