@@ -15,7 +15,9 @@
         main h3 { margin: 64px 0 28px; }
         main h2 + h3 { margin-top: 0; }
         figure { margin: 0 0 56px; text-align: center; }
-        figure img { display: block; margin: 0 auto; max-width: 100%; max-height: 85vh; width: auto; height: auto; cursor: zoom-in; }
+        /* Each photo carries its own size (width/height, --w, --r), so the page reserves the right space before images load
+           and nav jumps land exactly. Displayed size is unchanged: never wider than the photo, the column, or 85% of the screen height. */
+        figure img { display: block; margin: 0 auto; width: min(var(--w, 100%), 100%, calc(85vh * var(--r, 1))); height: auto; cursor: zoom-in; }
         .lightbox { position: fixed; inset: 0; background: rgba(253,253,253,.97); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 40px 64px; z-index: 200; }
         .lightbox.open { display: flex; }
         .lightbox img { max-width: 100%; max-height: calc(100vh - 140px); width: auto; height: auto; }
@@ -78,59 +80,59 @@
 
         <section id="underspecified" class="content-section">
             <h2>Underspecified</h2>
-            <figure><img src="photos/2021columbia-university.jpg" alt="Black-and-white: crowds on the steps below a columned library" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
-            <figure><img src="photos/2023-buffalo-dog-hair-texture.jpg" alt="Close-up of a dog's golden fur" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
-            <figure><img src="photos/omnipotent-youth-society-2023nyc.jpg" alt="Black-and-white: a trumpet player under a spotlight on a dark stage" loading="lazy" data-caption="Photograph · 2023 · New York"></figure>
-            <figure><img src="photos/2024-paris.jpg" alt="People gathered in a sunlit square in winter coats" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-paris-car.jpg" alt="Black-and-white: a square seen from above, with people, trees and parked cars" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-paris-bird-stature.jpg" alt="A statue against a pale evening sky" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-paris-river.jpg" alt="Black-and-white: figures on a riverbank at night, lights on the water" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/paris2024-look-at-each-other.jpg" alt="Black-and-white: a woman on a corner by a café menu board and a bicycle" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-paris-youth.jpg" alt="Black-and-white: two people at a cinema entrance" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-paris-baby-girl.jpg" alt="Black-and-white: a small girl walking through an ornate café" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-barcelona-old-man.jpg" alt="An old man crossing the street, seen through a reflective window" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-barcelona-houses.jpg" alt="Rooftops of the city in warm light" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-barcelona-construction.jpg" alt="Scaffolding and cranes around carved stone towers" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-barcelona-sands.jpg" alt="Footprints in the sand at the edge of the sea" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-barcelona-tides.jpg" alt="Waves breaking into spray on a blue sea" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-beach-sculpture.jpg" alt="A person sitting on the sand beside a tall rusted steel sculpture" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-facade-flags.jpg" alt="A beige facade with small flags in the windows" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-            <figure><img src="photos/2024-plaza-bust-pigeon.jpg" alt="A man resting on a chair by a bust as a pigeon takes off" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-park-statue.jpg" alt="A statue and a seated figure in a winter park" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
-            <figure><img src="photos/2024-cobblestones.jpg" alt="Black-and-white: cobblestones curving around a circle with a bird" loading="lazy" data-caption="Photograph · 2024 · Copenhagen"></figure>
-            <figure><img src="photos/2024-harbour-houses.jpg" alt="A row of colorful gabled houses along a harbour" loading="lazy" data-caption="Photograph · 2024 · Copenhagen"></figure>
-            <figure><img src="photos/2024-kitchen-cook.jpg" alt="Black-and-white: a cook plating food in an open kitchen" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-alley-light.jpg" alt="A narrow sunlit alley between brick buildings" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-water-reflections.jpg" alt="Rippling reflections on water" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-water-reflections-2.jpg" alt="Branches reflected in rippling water" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-gulls-field.jpg" alt="Gulls scattered across a grassy hill under a pale sky" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-gull-flight.jpg" alt="A gull in flight above a grassy hill" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-water-sparkle.jpg" alt="Sunlight glittering on dark water" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-red-building-van.jpg" alt="A white van passing a red apartment building" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-lotus.jpg" alt="A pink lotus bud among dark leaves" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-lotus-2.jpg" alt="A white lotus flower and a seed pod among leaves" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-pigeons-pier.jpg" alt="Pigeons on a pale pier above a choppy sea" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-green-carnation.jpg" alt="Close-up of a pale green carnation" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-mist-ducks.jpg" alt="Ducks on a lake in morning mist" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-yellow-leaves.jpg" alt="Backlit yellow leaves" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-skyline-autumn.jpg" alt="A city skyline above autumn trees" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-snow-shore.jpg" alt="Snow meeting dark water along a curved edge" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2024-snow-water.jpg" alt="A curve of snow against dark rippled water" loading="lazy" data-caption="Photograph · 2024"></figure>
-            <figure><img src="photos/2025-sea-dusk.jpg" alt="A calm sea under a pink dusk sky" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-eroded-cliffs.jpg" alt="Eroded clay cliffs and spires" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-market-tarps.jpg" alt="Colorful tarps over market stalls, seen from above" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-market-stall.jpg" alt="People at a food stall under colorful awnings" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-hillside-city.jpg" alt="A hillside city of brick houses below clouds" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-hillside-city-2.jpg" alt="A hillside city of brick houses below drifting clouds" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-salt-flat-reflection.jpg" alt="Mountains mirrored on a flooded salt flat" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-pink-house-street.jpg" alt="Pink and blue houses along a sloping street" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-city-snow-peak.jpg" alt="Brick houses climbing toward a snowy peak" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-monstera.jpg" alt="Monstera leaves against a white wall" loading="lazy" data-caption="Photograph · 2025"></figure>
-            <figure><img src="photos/2025-paintings.jpg" alt="Four abstract paintings on canvas against a wall" loading="lazy" data-caption="Painting · 2025 · acrylic and oil on canvas"></figure>
-            <figure><img src="photos/snowy-mountains.jpg" alt="Snowy mountains above a roadside" loading="lazy" data-caption="Photograph"></figure>
-            <figure><img src="photos/lotus-3.jpg" alt="A lotus bud on a tall stem" loading="lazy" data-caption="Photograph"></figure>
-            <figure><img src="photos/waves-light.jpg" alt="Choppy water catching warm light" loading="lazy" data-caption="Photograph"></figure>
-            <figure><img src="photos/2024-calligraphy.jpg" alt="Calligraphy on red paper: 多睡觉 少焦虑" loading="lazy" data-caption="Calligraphy · 2024 · handwritten in Buffalo"></figure>
+            <figure><img src="photos/2021columbia-university.jpg" width="1924" height="1080" style="--w:1924px;--r:1.7815" alt="Black-and-white: crowds on the steps below a columned library" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
+            <figure><img src="photos/2023-buffalo-dog-hair-texture.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="Close-up of a dog's golden fur" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/omnipotent-youth-society-2023nyc.jpg" width="1024" height="768" style="--w:1024px;--r:1.3333" alt="Black-and-white: a trumpet player under a spotlight on a dark stage" loading="lazy" data-caption="Photograph · 2023 · New York"></figure>
+            <figure><img src="photos/2024-paris.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="People gathered in a sunlit square in winter coats" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-paris-car.jpg" width="1772" height="1772" style="--w:1772px;--r:1.0000" alt="Black-and-white: a square seen from above, with people, trees and parked cars" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-paris-bird-stature.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="A statue against a pale evening sky" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-paris-river.jpg" width="935" height="1662" style="--w:935px;--r:0.5626" alt="Black-and-white: figures on a riverbank at night, lights on the water" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/paris2024-look-at-each-other.jpg" width="1024" height="768" style="--w:1024px;--r:1.3333" alt="Black-and-white: a woman on a corner by a café menu board and a bicycle" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-paris-youth.jpg" width="768" height="1024" style="--w:768px;--r:0.7500" alt="Black-and-white: two people at a cinema entrance" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-paris-baby-girl.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Black-and-white: a small girl walking through an ornate café" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-barcelona-old-man.jpg" width="1025" height="1825" style="--w:1025px;--r:0.5616" alt="An old man crossing the street, seen through a reflective window" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-barcelona-houses.jpg" width="1024" height="768" style="--w:1024px;--r:1.3333" alt="Rooftops of the city in warm light" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-barcelona-construction.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Scaffolding and cranes around carved stone towers" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-barcelona-sands.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="Footprints in the sand at the edge of the sea" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-barcelona-tides.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Waves breaking into spray on a blue sea" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-beach-sculpture.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="A person sitting on the sand beside a tall rusted steel sculpture" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-facade-flags.jpg" width="1772" height="1772" style="--w:1772px;--r:1.0000" alt="A beige facade with small flags in the windows" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+            <figure><img src="photos/2024-plaza-bust-pigeon.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="A man resting on a chair by a bust as a pigeon takes off" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-park-statue.jpg" width="1485" height="836" style="--w:1485px;--r:1.7763" alt="A statue and a seated figure in a winter park" loading="lazy" data-caption="Photograph · 2024 · Paris"></figure>
+            <figure><img src="photos/2024-cobblestones.jpg" width="2000" height="1124" style="--w:2000px;--r:1.7794" alt="Black-and-white: cobblestones curving around a circle with a bird" loading="lazy" data-caption="Photograph · 2024 · Copenhagen"></figure>
+            <figure><img src="photos/2024-harbour-houses.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="A row of colorful gabled houses along a harbour" loading="lazy" data-caption="Photograph · 2024 · Copenhagen"></figure>
+            <figure><img src="photos/2024-kitchen-cook.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="Black-and-white: a cook plating food in an open kitchen" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-alley-light.jpg" width="1125" height="2000" style="--w:1125px;--r:0.5625" alt="A narrow sunlit alley between brick buildings" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-water-reflections.jpg" width="1608" height="1206" style="--w:1608px;--r:1.3333" alt="Rippling reflections on water" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-water-reflections-2.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Branches reflected in rippling water" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-gulls-field.jpg" width="2000" height="1198" style="--w:2000px;--r:1.6694" alt="Gulls scattered across a grassy hill under a pale sky" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-gull-flight.jpg" width="1125" height="2000" style="--w:1125px;--r:0.5625" alt="A gull in flight above a grassy hill" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-water-sparkle.jpg" width="1125" height="2000" style="--w:1125px;--r:0.5625" alt="Sunlight glittering on dark water" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-red-building-van.jpg" width="1124" height="2000" style="--w:1124px;--r:0.5620" alt="A white van passing a red apartment building" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-lotus.jpg" width="1823" height="1823" style="--w:1823px;--r:1.0000" alt="A pink lotus bud among dark leaves" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-lotus-2.jpg" width="1817" height="1817" style="--w:1817px;--r:1.0000" alt="A white lotus flower and a seed pod among leaves" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-pigeons-pier.jpg" width="665" height="1182" style="--w:665px;--r:0.5626" alt="Pigeons on a pale pier above a choppy sea" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-green-carnation.jpg" width="360" height="360" style="--w:360px;--r:1.0000" alt="Close-up of a pale green carnation" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-mist-ducks.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="Ducks on a lake in morning mist" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-yellow-leaves.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="Backlit yellow leaves" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-skyline-autumn.jpg" width="768" height="1024" style="--w:768px;--r:0.7500" alt="A city skyline above autumn trees" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-snow-shore.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Snow meeting dark water along a curved edge" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2024-snow-water.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="A curve of snow against dark rippled water" loading="lazy" data-caption="Photograph · 2024"></figure>
+            <figure><img src="photos/2025-sea-dusk.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="A calm sea under a pink dusk sky" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-eroded-cliffs.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Eroded clay cliffs and spires" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-market-tarps.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="Colorful tarps over market stalls, seen from above" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-market-stall.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="People at a food stall under colorful awnings" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-hillside-city.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="A hillside city of brick houses below clouds" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-hillside-city-2.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="A hillside city of brick houses below drifting clouds" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-salt-flat-reflection.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="Mountains mirrored on a flooded salt flat" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-pink-house-street.jpg" width="1620" height="1620" style="--w:1620px;--r:1.0000" alt="Pink and blue houses along a sloping street" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-city-snow-peak.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Brick houses climbing toward a snowy peak" loading="lazy" data-caption="Photograph · 2025 · La Paz"></figure>
+            <figure><img src="photos/2025-monstera.jpg" width="2000" height="2000" style="--w:2000px;--r:1.0000" alt="Monstera leaves against a white wall" loading="lazy" data-caption="Photograph · 2025"></figure>
+            <figure><img src="photos/2025-paintings.jpg" width="2000" height="2000" style="--w:2000px;--r:1.0000" alt="Four abstract paintings on canvas against a wall" loading="lazy" data-caption="Painting · 2025 · acrylic and oil on canvas"></figure>
+            <figure><img src="photos/snowy-mountains.jpg" width="1125" height="2000" style="--w:1125px;--r:0.5625" alt="Snowy mountains above a roadside" loading="lazy" data-caption="Photograph"></figure>
+            <figure><img src="photos/lotus-3.jpg" width="1125" height="2000" style="--w:1125px;--r:0.5625" alt="A lotus bud on a tall stem" loading="lazy" data-caption="Photograph"></figure>
+            <figure><img src="photos/waves-light.jpg" width="1137" height="640" style="--w:1137px;--r:1.7766" alt="Choppy water catching warm light" loading="lazy" data-caption="Photograph"></figure>
+            <figure><img src="photos/2024-calligraphy.jpg" width="1080" height="1080" style="--w:1080px;--r:1.0000" alt="Calligraphy on red paper: 多睡觉 少焦虑" loading="lazy" data-caption="Calligraphy · 2024 · handwritten in Buffalo"></figure>
         </section>
 
     </main>

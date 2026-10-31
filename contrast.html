@@ -15,7 +15,9 @@
         main h3 { margin: 64px 0 28px; }
         main h2 + h3 { margin-top: 0; }
         figure { margin: 0 0 56px; text-align: center; }
-        figure img { display: block; margin: 0 auto; max-width: 100%; max-height: 85vh; width: auto; height: auto; cursor: zoom-in; }
+        /* Each photo carries its own size (width/height, --w, --r), so the page reserves the right space before images load
+           and nav jumps land exactly. Displayed size is unchanged: never wider than the photo, the column, or 85% of the screen height. */
+        figure img { display: block; margin: 0 auto; width: min(var(--w, 100%), 100%, calc(85vh * var(--r, 1))); height: auto; cursor: zoom-in; }
         .lightbox { position: fixed; inset: 0; background: rgba(253,253,253,.97); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 40px 64px; z-index: 200; }
         .lightbox.open { display: flex; }
         .lightbox img { max-width: 100%; max-height: calc(100vh - 140px); width: auto; height: auto; }
@@ -80,25 +82,25 @@
             <h2>Contrast <span class="zh">对比</span></h2>
             
             <h3 id="light-shadow"><span class="num">01</span> Lights and Shades <span class="zh">明暗</span></h3>
-            <figure><img src="photos/kent423.jpg" alt="Sunlight on a wall above chairs" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
-            <figure><img src="photos/light.jpg" alt="Statue in a beam of light" loading="lazy" data-caption="Photograph · 2018 · New York"></figure>
-                        <figure><img src="photos/tulip.jpg" alt="Tulips" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
-                        <figure><img src="photos/london-2023.jpg" alt="Two people in the shadow of a stone colonnade" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
-                        <figure><img src="photos/london-summer.jpg" alt="People sitting outside under trees beside a red telephone box" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
-                        <figure><img src="photos/courtauld-window.jpg" alt="Light through a tall arched window onto a bench" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
-                        <figure><img src="photos/akg.jpg" alt="Black-and-white: Ionic columns of a museum facade" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
-            <figure><img src="photos/london-street-reading-under-tree.jpg" alt="A woman reading under a plane tree among yellow chairs" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
+            <figure><img src="photos/kent423.jpg" width="1488" height="2000" style="--w:1488px;--r:0.7440" alt="Sunlight on a wall above chairs" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
+            <figure><img src="photos/light.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="Statue in a beam of light" loading="lazy" data-caption="Photograph · 2018 · New York"></figure>
+                        <figure><img src="photos/tulip.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="Tulips" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
+                        <figure><img src="photos/london-2023.jpg" width="1500" height="2000" style="--w:1500px;--r:0.7500" alt="Two people in the shadow of a stone colonnade" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
+                        <figure><img src="photos/london-summer.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="People sitting outside under trees beside a red telephone box" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
+                        <figure><img src="photos/courtauld-window.jpg" width="924" height="2000" style="--w:924px;--r:0.4620" alt="Light through a tall arched window onto a bench" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
+                        <figure><img src="photos/akg.jpg" width="1025" height="1367" style="--w:1025px;--r:0.7498" alt="Black-and-white: Ionic columns of a museum facade" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/london-street-reading-under-tree.jpg" width="1125" height="2000" style="--w:1125px;--r:0.5625" alt="A woman reading under a plane tree among yellow chairs" loading="lazy" data-caption="Photograph · 2023 · London"></figure>
           
             <h3 id="moving"><span class="num">02</span> Moving and Still <span class="zh">动静</span></h3>
-            <figure><img src="photos/sea.jpg" alt="Waves at sunset" loading="lazy" data-caption="Photograph · 2022 · Los Angeles"></figure>
-                        <figure><img src="photos/nyc-20210828.jpg" alt="Street musicians" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
-            <figure><img src="photos/motion.jpg" alt="players and passengers" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
-                        <figure><img src="photos/dr-20250811.jpg" alt="Street market" loading="lazy" data-caption="Photograph · 2025 · Dominican Republic"></figure>
-            <figure><img src="photos/highway.jpg" alt="Black-and-white: a highway interchange curving through trees" loading="lazy" data-caption="Photograph · 2019 · Austin"></figure>
-                                    <figure><img src="photos/burningbooks.jpg" alt="A bookshop called Burning Books on a street corner" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
-            <figure><img src="photos/themet.jpg" alt="Birds on bare branches" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
-                        <figure><img src="photos/wny-roads.jpg" alt="A winding paved path between mown fields" loading="lazy" data-caption="Photograph · 2023 · Western New York"></figure>
-            <figure><img src="photos/wny-tree.jpg" alt="A bare tree alone in a field" loading="lazy" data-caption="Photograph · 2023 · Western New York"></figure>
+            <figure><img src="photos/sea.jpg" width="1600" height="2000" style="--w:1600px;--r:0.8000" alt="Waves at sunset" loading="lazy" data-caption="Photograph · 2022 · Los Angeles"></figure>
+                        <figure><img src="photos/nyc-20210828.jpg" width="1920" height="1080" style="--w:1920px;--r:1.7778" alt="Street musicians" loading="lazy" data-caption="Photograph · 2021 · New York"></figure>
+            <figure><img src="photos/motion.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="players and passengers" loading="lazy" data-caption="Photograph · 2024 · Barcelona"></figure>
+                        <figure><img src="photos/dr-20250811.jpg" width="2000" height="1125" style="--w:2000px;--r:1.7778" alt="Street market" loading="lazy" data-caption="Photograph · 2025 · Dominican Republic"></figure>
+            <figure><img src="photos/highway.jpg" width="1078" height="1440" style="--w:1078px;--r:0.7486" alt="Black-and-white: a highway interchange curving through trees" loading="lazy" data-caption="Photograph · 2019 · Austin"></figure>
+                                    <figure><img src="photos/burningbooks.jpg" width="2000" height="1500" style="--w:2000px;--r:1.3333" alt="A bookshop called Burning Books on a street corner" loading="lazy" data-caption="Photograph · 2023 · Buffalo"></figure>
+            <figure><img src="photos/themet.jpg" width="1498" height="2000" style="--w:1498px;--r:0.7490" alt="Birds on bare branches" loading="lazy" data-caption="Photograph · 2022 · New York"></figure>
+                        <figure><img src="photos/wny-roads.jpg" width="2000" height="1122" style="--w:2000px;--r:1.7825" alt="A winding paved path between mown fields" loading="lazy" data-caption="Photograph · 2023 · Western New York"></figure>
+            <figure><img src="photos/wny-tree.jpg" width="1586" height="1982" style="--w:1586px;--r:0.8002" alt="A bare tree alone in a field" loading="lazy" data-caption="Photograph · 2023 · Western New York"></figure>
         
 
         </section>
