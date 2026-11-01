@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Typology of Momentary Beings · Juan Zhong</title>
     <meta name="description" content="A Typology of Momentary Beings 关于片刻的剖析 — photographs by Juan Zhong.">
-    <link rel="preload" as="image" href="photos/themet.jpg">
     <style>
         /* iOS Safari enlarges text in landscape unless told not to; that pushed 析 into a second column */
         html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -21,14 +20,86 @@
         .choose { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
                   opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s; cursor: default; }
         .chosen .choose { opacity: 1; visibility: visible; }
-        .choose a { color: #fff; text-decoration: none; font-size: 16px; letter-spacing: .3em; padding: 10px 4px; border-bottom: 1px solid transparent; transition: border-color .2s; }
+        .choose a { color: #fff; text-decoration: none; font-size: 16px; letter-spacing: .3em; padding: 10px 4px; border-bottom: 1px solid transparent; transition: border-color .2s;
+                    text-shadow: 0 0 14px rgba(0,0,0,.7), 0 0 4px rgba(0,0,0,.55); } /* a soft halo keeps the white words legible on lighter photos */
         .choose a:hover, .choose a:focus-visible { border-bottom-color: #fff; outline: none; }
         .choose .en { font-family: 'Optima nova', Optima, 'Optima Fallback', serif; text-transform: uppercase; }
         .choose .zh { font-family: 'LXGW WenKai Art', 'Kaiti SC', 'STKaiti', serif; font-size: 17px; }
     </style>
 </head>
 <body>
-    <img class="photo" src="photos/themet.jpg" width="1498" height="2000" alt="Black-and-white: birds on the bare branches of a pruned tree against a grey sky">
+    <img class="photo" id="photo" alt="">
+    <script>
+        // First visit: the birds on the branches. After that, a different photograph on every visit, chosen from across the collection (never the same one twice in a row)
+        (function () {
+            var photos = [
+                ["themet.jpg", 1498, 2000, "Black-and-white: birds on the bare branches of a pruned tree against a grey sky"],
+                ["akg-lines.jpg", 1000, 1777, "Black-and-white: three people walking past broad steps"],
+                ["akg.jpg", 1025, 1367, "Black-and-white: Ionic columns of a museum facade"],
+                ["beijing-subway.jpg", 1922, 1080, "Black-and-white: a station seen through curved openings"],
+                ["calgary.jpg", 2000, 1500, "Black-and-white: a wire-mesh head sculpture above rows of parked cars"],
+                ["dr-20250811.jpg", 2000, 1125, "Street market"],
+                ["highway.jpg", 1078, 1440, "Black-and-white: a highway interchange curving through trees"],
+                ["incircles.jpg", 2000, 1501, "Black-and-white: a band playing outdoors under trees"],
+                ["la.jpg", 1212, 682, "Black-and-white: curved steel walls of a concert hall and a lamppost"],
+                ["met-shades.jpg", 1440, 1080, "Shade over a stone building"],
+                ["motion.jpg", 2000, 1125, "players and passengers"],
+                ["new-york-wtc-lines.jpg", 666, 1182, "Black-and-white: the white ribs of the Oculus over a lone figure"],
+                ["new-york-wtc.jpg", 360, 640, "Black-and-white: the ribs of the Oculus with flags"],
+                ["autumn-leaves.jpg", 2000, 1500, "orange, yellow and green"],
+                ["moonriver.jpg", 1080, 1350, "blue"],
+                ["yellowred.jpg", 1500, 2000, "yellow and red"],
+                ["buf-20241006.jpg", 1500, 2000, "golden"],
+                ["wny-red-houses.jpg", 1697, 955, "The red wall of a barn with a quilt block and white windows"],
+                ["uws.jpg", 1080, 1350, "A church tower lit orange at sunset above a crosswalk"],
+                ["hotel.jpg", 1440, 1078, "A building facade with windows lit in many colors at night"],
+                ["seattle.jpeg", 360, 480, "forest green"],
+                ["beijing-daxing.jpg", 2000, 1125, "Sweeping curved ceiling lines opening to a skylight"],
+                ["buf-20241213.jpg", 1500, 2000, "Building facades"],
+                ["nyc-bricks.jpg", 1773, 1773, "Brown brick buildings stacked across the skyline"],
+                ["2023-buffalo-dog-hair-texture.jpg", 2000, 1125, "Close-up of a dog's golden fur"],
+                ["dried-tulip.jpg", 2000, 1125, "The same yellow tulips, drooping and drying"],
+                ["london-2023.jpg", 1500, 2000, "Two people in the shadow of a stone colonnade"],
+                ["a-man-and-a-dog-nyc-20221124.jpg", 1464, 1098, "A man and a dog"],
+                ["men.jpg", 2000, 1125, "A man by the water"],
+                ["ay-market.jpg", 2000, 1401, "Shoppers at a meat stall in a market"],
+                ["courtauld-door.jpg", 999, 1775, "A car's headlights in a dark stone archway"],
+                ["light.jpg", 2000, 1500, "Statue in a beam of light"],
+                ["kent423.jpg", 1488, 2000, "Sunlight on a wall above chairs"],
+                ["sea.jpg", 1600, 2000, "Waves at sunset"],
+                ["2026-hot-air-balloons.jpg", 1500, 2000, "Hot-air balloons over autumn hills"],
+                ["wny-roads.jpg", 2000, 1122, "A winding paved path between mown fields"],
+                ["omnipotent-youth-society-2023nyc.jpg", 1024, 768, "Black-and-white: a trumpet player under a spotlight on a dark stage"],
+                ["2024-paris-river.jpg", 935, 1662, "Black-and-white: figures on a riverbank at night, lights on the water"],
+                ["2024-paris-baby-girl.jpg", 1500, 2000, "Black-and-white: a small girl walking through an ornate café"],
+                ["2024-kitchen-cook.jpg", 2000, 1125, "Black-and-white: a cook plating food in an open kitchen"],
+                ["2024-barcelona-old-man.jpg", 1025, 1825, "An old man crossing the street, seen through a reflective window"],
+                ["2024-plaza-bust-pigeon.jpg", 1500, 2000, "A man resting on a chair by a bust as a pigeon takes off"],
+                ["2024-water-sparkle.jpg", 1125, 2000, "Sunlight glittering on dark water"],
+                ["2024-lotus.jpg", 1823, 1823, "A pink lotus bud among dark leaves"],
+                ["lotus-3.jpg", 1125, 2000, "A lotus bud on a tall stem"],
+                ["2025-pink-rose.jpg", 1500, 2000, "A pink rose glowing against dark leaves"],
+                ["2025-salt-flat-reflection.jpg", 2000, 1500, "Mountains mirrored on a flooded salt flat"],
+                ["2025-night-lights.jpg", 2000, 1125, "Blurred city lights reflected on a wet night street"],
+                ["2025-crater-lake.jpg", 1500, 2000, "A deep blue lake below snowy volcanic slopes"],
+                ["2025-ochre-wall-car.jpg", 1500, 2000, "An orange car below a tall ochre wall with a banana plant"],
+                ["2026-blue-wall-painter.jpg", 1500, 2000, "A man painting a bright blue wall"],
+                ["2026-moon-dusk.jpg", 1500, 2000, "A thin moon above a dark building at dusk"],
+                ["2026-misty-forest.jpg", 2000, 1125, "Mist over a dark forested mountainside"]
+            ];
+            var last = null, i;
+            try { last = localStorage.getItem('art-splash'); } catch (e) {}
+            if (!last) {
+                i = 0; // first visit: always the birds on the branches
+            } else {
+                do { i = Math.floor(Math.random() * photos.length); } while (photos.length > 1 && photos[i][0] === last);
+            }
+            try { localStorage.setItem('art-splash', photos[i][0]); } catch (e) {}
+            var p = photos[i], img = document.getElementById('photo');
+            img.width = p[1]; img.height = p[2]; img.alt = p[3]; img.src = 'photos/' + p[0];
+        })();
+    </script>
+    <noscript><style>#photo { display: none; }</style><img class="photo" src="photos/themet.jpg" width="1498" height="2000" alt="Black-and-white: birds on the bare branches of a pruned tree against a grey sky"></noscript>
     <nav class="choose" aria-label="Choose a language">
         <a class="en" href="en.html" lang="en">English</a>
         <a class="zh" href="zh.html" lang="zh-CN">中文</a>
@@ -39,10 +110,6 @@
             function open() { body.classList.add('chosen'); }
             document.body.addEventListener('click', function (e) { if (!e.target.closest('.choose a')) open(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') open(); });
-            // remember the choice so other pages can lead back to the right home
-            document.querySelectorAll('.choose a').forEach(function (a) {
-                a.addEventListener('click', function () { try { localStorage.setItem('art-lang', a.getAttribute('lang') === 'en' ? 'en' : 'zh'); } catch (err) {} });
-            });
         })();
     </script>
 </body>
