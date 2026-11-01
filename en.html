@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Typology of Momentary Beings · Juan Zhong</title>
+    <meta name="description" content="A Typology of Momentary Beings, photographs by Juan Zhong.">
+    <style>
+        /* Digits only: Limelight figures */
+        @font-face { font-family: 'Art Figures'; src: url('fonts/limelight-figures.woff2') format('woff2'); unicode-range: U+0030-0039; font-display: swap; }
+        @font-face { font-family: 'Optima Fallback'; src: url('fonts/marcellus-latin-400-normal.woff2') format('woff2'); font-display: swap; }
+        /* Chinese: the LXGW WenKai look used for the name on the homepage */
+        @font-face { font-family: 'LXGW WenKai Art'; src: url('fonts/lxgw-wenkai-art.woff2') format('woff2'); font-display: swap; }
+
+        :root {
+            --sans: 'Art Figures', 'Optima nova', 'Optima nova LT Pro', Optima, 'Optima Fallback', serif;
+            --title: var(--sans);
+            --zh: 'LXGW WenKai Art', 'LXGW WenKai', 'Kaiti SC', 'STKaiti', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #fdfdfd; color: #000; font-family: var(--sans); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 48px 20px; }
+        a { color: inherit; text-decoration: none; }
+        a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .lang:lang(zh) { font-family: var(--zh); letter-spacing: .2em; }
+        .lang { position: fixed; top: 18px; right: 24px; font-size: 13px; letter-spacing: .12em; color: #666; }
+        .card { background: #fff; border: 1px solid #e0e0e0; width: min(820px, 100%); padding: 64px 72px 60px 56px; display: grid; grid-template-columns: auto 1fr; column-gap: 44px; }
+        .name { color: #333; display: flex; flex-direction: column; align-items: center; justify-content: space-between; font-size: 30px; line-height: 1; padding: 2px 0 4px; }
+        .name span { display: block; }
+        .name .gap { height: .4em; }
+        .body { display: flex; flex-direction: column; }
+        .kicker { font-size: 19px; letter-spacing: .02em; margin-top: 4px; }
+        h1 { font-family: var(--title); font-weight: 400; font-size: 46px; letter-spacing: .08em; line-height: 1.1; margin-top: 46px; }
+        .sub { font-family: var(--zh); font-size: 22px; letter-spacing: .3em; margin-top: 16px; color: #666; }
+        nav { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; row-gap: 30px; margin-top: 46px; }
+        nav .main { font-size: 14px; letter-spacing: .16em; text-transform: uppercase; display: inline-block; margin-bottom: 8px; color: #000; }
+        nav .subs a { display: block; font-style: italic; font-size: 18px; line-height: 1.55; color: #666; }
+        .year { margin-top: auto; padding-top: 56px; font-size: 18px; letter-spacing: .22em; color: #333; }
+
+        /* Chinese page */
+        :lang(zh) .name { font-family: var(--zh); font-size: 34px; justify-content: flex-start; gap: 14px; }
+        :lang(zh) .kicker, :lang(zh) h1, :lang(zh) nav { font-family: var(--zh); }
+        :lang(zh) h1 { font-weight: 400; letter-spacing: .18em; font-size: 48px; }
+        :lang(zh) nav .main { font-size: 17px; letter-spacing: .3em; }
+        :lang(zh) nav .subs a { font-style: normal; font-size: 18px; letter-spacing: .2em; line-height: 1.7; }
+        :lang(zh) .kicker { letter-spacing: .2em; }
+
+        @media (max-width: 640px) {
+            body { padding: 44px 12px 20px; align-items: flex-start; }
+            .card { padding: 36px 24px 36px 18px; column-gap: 20px; }
+            .name { font-size: 20px; }
+            :lang(zh) .name { font-size: 24px; }
+            .kicker { font-size: 15px; }
+            h1 { font-size: 28px; margin-top: 26px; }
+            :lang(zh) h1 { font-size: 30px; }
+            .sub { font-size: 17px; }
+            nav { grid-template-columns: 1fr; row-gap: 22px; margin-top: 30px; }
+            nav .subs a { font-size: 16px; }
+            .year { font-size: 14px; padding-top: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="lang" href="zh.html" lang="zh-CN">中文</a>
+    <main class="card">
+        <div class="name" aria-label="Juan Zhong">
+            <span>J</span><span>U</span><span>A</span><span>N</span><span class="gap"></span>
+            <span>Z</span><span>H</span><span>O</span><span>N</span><span>G</span>
+        </div>
+        <div class="body">
+            <p class="kicker">A Typology of</p>
+            <h1>MOMENTARY BEINGS</h1>
+            <nav aria-label="Series">
+                <div><a class="main" href="elements.html">Elements</a>
+                    <div class="subs"><a href="elements.html#color">Color</a><a href="elements.html#shape">Shape</a><a href="elements.html#texture">Texture</a></div></div>
+                <div><a class="main" href="relations.html">Relations</a>
+                    <div class="subs"><a href="relations.html#coordination">Coordination</a><a href="relations.html#interaction">Interaction</a></div></div>
+                <div><a class="main" href="contrasts.html">Contrasts</a>
+                    <div class="subs"><a href="contrasts.html#light-shadow">Lights and Shades</a><a href="contrasts.html#artifact-nature">Artifact and Nature</a><a href="contrasts.html#stillness-movement">Stillness of Movement</a></div></div>
+                <div><a class="main" href="studies.html">Studies</a>
+                    <div class="subs"><a href="studies.html#wind">Wind</a><a href="studies.html#distance">Distance</a></div></div>
+            </nav>
+            <p class="year">2016–2026</p>
+        </div>
+    </main>
+</body>
+</html>
