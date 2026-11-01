@@ -7,6 +7,8 @@
     <meta name="description" content="Photography by Juan Zhong.">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* iOS Safari enlarges text in landscape unless told not to; that pushed 析 into a second column */
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         /* Page-specific styles (shared typography lives in styles.css) */
         main h2, main h3, header { text-align: center; }
         main h3 .zh { display: block; margin-top: 6px; }

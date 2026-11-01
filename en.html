@@ -6,6 +6,8 @@
     <title>A Typology of Momentary Beings · Juan Zhong</title>
     <meta name="description" content="A Typology of Momentary Beings, photographs by Juan Zhong.">
     <style>
+        /* iOS Safari enlarges text in landscape unless told not to; that pushed 析 into a second column */
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         /* Digits only: Limelight figures */
         @font-face { font-family: 'Art Figures'; src: url('fonts/limelight-figures.woff2') format('woff2'); unicode-range: U+0030-0039; font-display: swap; }
         @font-face { font-family: 'Optima Fallback'; src: url('fonts/marcellus-latin-400-normal.woff2') format('woff2'); font-display: swap; }
@@ -47,6 +49,19 @@
         :lang(zh) nav .subs a { font-style: normal; font-size: 18px; letter-spacing: .2em; line-height: 1.7; }
         :lang(zh) .kicker { letter-spacing: .2em; }
 
+        /* Short landscape screens (phones turned sideways): the same poster, scaled down to fit the screen height */
+        @media (min-width: 641px) and (max-height: 560px) {
+            body { padding: 16px 20px; }
+            .card { width: min(640px, 100%); padding: 24px 48px 22px 36px; column-gap: 30px; }
+            .name { font-size: 18px; }
+            .kicker { font-size: 14px; margin-top: 2px; }
+            h1 { font-size: 30px; margin-top: 14px; }
+            nav { margin-top: 18px; row-gap: 10px; column-gap: 32px; }
+            nav .main { font-size: 11px; margin-bottom: 3px; }
+            nav .subs a { font-size: 13px; line-height: 1.35; }
+            .year { font-size: 12px; padding-top: 14px; }
+            .lang { top: 29.5px; right: 35px; font-size: 12px; }
+        }
         @media (max-width: 640px) {
             body { padding: 44px 12px 20px; align-items: flex-start; }
             .card { padding: 36px 24px 36px 18px; column-gap: 20px; }
