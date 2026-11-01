@@ -38,16 +38,21 @@
         :root { --font: 'Art Figures', Optima, 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai', serif; }
         header h1 a { color: inherit; }
         header .name-zh { margin-top: 10px; }
-        /* Small link back to the poster home (English or Chinese, whichever the visitor chose) */
-        .home-link { display: block; text-align: center; padding-top: 22px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #999; }
-        .home-link:hover { color: #000; }
-        .home-link.zh { font-family: var(--font-zh); letter-spacing: .3em; font-size: 14px; }
+        /* Back to the two poster homes: the Chinese title leads to the Chinese home, the English title to the English home */
+        .home-links { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 6px 22px; padding: 22px 16px 0; color: #999; }
+        .home-links a { color: #999; text-decoration: none; text-transform: none; margin: 0; }
+        .home-links a:hover { color: #000; }
+        .home-links .zh { font-family: var(--font-zh); font-size: 13px; letter-spacing: .25em; }
+        .home-links .en { font-size: 12px; letter-spacing: .08em; }
     </style>
 </head>
 <body>
 
    
-    <a class="home-link" id="homeLink" href="en.html">Juan Zhong</a>
+    <nav class="home-links" aria-label="Home">
+        <a class="zh" href="zh.html" lang="zh-CN">关于片刻的剖析</a>
+        <a class="en" href="en.html" lang="en">A Typology of Momentary Beings</a>
+    </nav>
 
           
     <main>
@@ -134,9 +139,6 @@
         })();
     </script>
 
-    <script>
-        (function () { try { if (localStorage.getItem('art-lang') === 'zh') { var h = document.getElementById('homeLink'); h.href = 'zh.html'; h.textContent = '钟娟'; h.lang = 'zh-CN'; h.classList.add('zh'); } } catch (e) {} })();
-    </script>
     <footer>
         <p>Art · by <a href="https://juan-zhong.github.io/me/">Juan Zhong</a></p>
         <p class="license">Art © 2026 Juan Zhong. All rights reserved. Site code: CC0.</p>
