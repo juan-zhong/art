@@ -28,6 +28,7 @@
         .card { position: relative; background: #fff; border: 1px solid #e0e0e0; width: min(820px, 100%); padding: 64px 72px 60px 56px; display: grid; grid-template-columns: auto 1fr; column-gap: 44px; }
         .name { color: #333; display: flex; flex-direction: column; align-items: center; justify-content: space-between; font-size: 30px; line-height: 1; padding: 2px 0 4px; }
         .name span { display: block; }
+        .name:hover { text-decoration: none; color: #000; }
         .name .gap { height: .4em; }
         .body { display: flex; flex-direction: column; }
         .kicker { font-size: 19px; letter-spacing: .02em; margin-top: 4px; }
@@ -65,10 +66,10 @@
 <body>
     <main class="card">
         <a class="lang" href="zh.html" lang="zh-CN">中</a>
-        <div class="name" aria-label="Juan Zhong">
+        <a class="name" href="https://juan-zhong.github.io/me/" aria-label="Juan Zhong">
             <span>J</span><span>U</span><span>A</span><span>N</span><span class="gap"></span>
             <span>Z</span><span>H</span><span>O</span><span>N</span><span>G</span>
-        </div>
+        </a>
         <div class="body">
             <p class="kicker">A Typology of</p>
             <h1>MOMENTARY BEINGS</h1>
