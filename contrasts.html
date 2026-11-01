@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Page-specific styles (shared typography lives in styles.css) */
-        main h2, main h3, header, .page-nav { text-align: center; }
+        main h2, main h3, header { text-align: center; }
         main h3 .zh { display: block; margin-top: 6px; }
         main h2 .num { display: block; margin-bottom: 6px; }
         main h2 .zh { display: block; margin-top: 8px; font-size: 0.6em; }
@@ -28,13 +28,6 @@
         .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
         .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
         @media (max-width: 600px) { .lightbox { padding: 40px 12px; } .lb-prev, .lb-next { top: auto; bottom: 8px; transform: none; } }
-        /* Page nav: each series with its studies listed underneath */
-        .nav-cols { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 56px; padding-top: 22px; line-height: 1.6; }
-        .nav-cols .col { display: flex; flex-direction: column; align-items: center; }
-        .nav-cols .main { margin: 0 0 6px; }
-        .nav-cols .subs a { display: block; margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: none; color: #888; }
-        .nav-cols .subs a:hover, .nav-cols .main:hover { color: #000; }
-        @media (max-width: 600px) { .nav-cols { gap: 22px; padding: 16px 12px 0; } .nav-cols .subs a { font-size: 11px; } }
         /* Chinese title in the self-hosted LXGW WenKai subset (same Kaiti look as the homepage name) */
         @font-face { font-family: 'LXGW WenKai Art'; src: url('fonts/lxgw-wenkai-art.woff2') format('woff2'); font-display: swap; }
         :root { --font-zh: 'LXGW WenKai Art', 'LXGW WenKai', 'Kaiti SC', 'STKaiti', 'Kaiti TC', serif; }
@@ -43,49 +36,15 @@
         :root { --font: 'Art Figures', Optima, 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai', serif; }
         header h1 a { color: inherit; }
         header .name-zh { margin-top: 10px; }
-        .nav-cols a[aria-current="page"] { border-bottom: 1px solid #333; }
         /* Small link back to the poster home (English or Chinese, whichever the visitor chose) */
         .home-link { display: block; text-align: center; padding-top: 22px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #999; }
         .home-link:hover { color: #000; }
         .home-link.zh { font-family: var(--font-zh); letter-spacing: .3em; font-size: 14px; }
-        .nav-cols { padding-top: 10px !important; }
     </style>
 </head>
 <body>
 
     <a class="home-link" id="homeLink" href="en.html">Juan Zhong</a>
-    <nav class="page-nav nav-cols">
-        <div class="col">
-            <a class="main" href="elements.html">Elements</a>
-            <div class="subs">
-                <a href="elements.html#color">Color</a>
-                <a href="elements.html#shape">Shape</a>
-                <a href="elements.html#texture">Texture</a>
-            </div>
-        </div>
-        <div class="col">
-            <a class="main" href="relations.html">Relations</a>
-            <div class="subs">
-                <a href="relations.html#coordination">Coordination</a>
-                <a href="relations.html#interaction">Interaction</a>
-            </div>
-        </div>
-        <div class="col">
-            <a class="main" href="contrasts.html" aria-current="page">Contrasts</a>
-            <div class="subs">
-                <a href="contrasts.html#light-shadow">Lights and Shades</a>
-                <a href="contrasts.html#artifact-nature">Artifact and Nature</a>
-                <a href="contrasts.html#stillness-movement">Stillness of Movement</a>
-            </div>
-        </div>
-        <div class="col">
-            <a class="main" href="studies.html">Studies</a>
-            <div class="subs">
-                <a href="studies.html#wind">Wind</a>
-                <a href="studies.html#distance">Distance</a>
-            </div>
-        </div>
-    </nav>
 
 
 

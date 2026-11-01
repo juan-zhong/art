@@ -33,13 +33,12 @@
         .foot { writing-mode: vertical-rl; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 22px; }
         .name { writing-mode: vertical-rl; font-size: 19px; letter-spacing: .6em; color: #333; }
         .year { writing-mode: vertical-rl; font-size: 15px; letter-spacing: .25em; color: #333; }
-        .y-gz { display: none; }
         /* 手机：宋代题跋册页的章法，用现代字体重新解释。
            标题居右、独立，略高于正文（抬头）；正文各列齐头不齐脚，列距匀净；
            落款一列小字，起首低于正文，止于正文末字之上；文字聚于右，左侧留白。 */
         @media (max-width: 640px) {
             body { padding: 52px 12px 24px; align-items: flex-start; }
-            .card { border: none; background: transparent; height: auto; padding: 64px 26px 56px; display: flex; flex-direction: row-reverse; justify-content: flex-start; align-items: flex-start; }
+            .card { height: auto; padding: 64px 26px 56px; display: flex; flex-direction: row-reverse; justify-content: flex-start; align-items: flex-start; }
             .title { display: contents; }
             .title .k { font-size: 16px; letter-spacing: .5em; color: #111; margin-left: 10px; }
             .title h1 { font-size: 36px; letter-spacing: .4em; margin-left: 38px; }
@@ -58,9 +57,8 @@
             nav .s + .s { margin-top: .5em; }
             /* 落款：干支纪年与「关于」上缘对齐，姓名与正文末字对齐 */
             .foot { display: flex; flex-direction: row; justify-content: space-between; align-self: stretch; gap: 16px; margin-right: 32px; margin-top: 0; }
-            .y-num { display: none; }
-            .y-gz { display: inline; }
-            body { padding-top: 40px; }
+            /* 卡片保留细框，整体居中于屏幕 */
+            body { align-items: center; padding: 24px 12px; }
             .lang { right: 26px; bottom: 56.5px; }
             .year, .name { display: inline; }
             .year { font-size: 12px; letter-spacing: .12em; color: #8a8a8a; }
@@ -72,7 +70,7 @@
     <main class="card">
         <div class="title"><p class="k v">关于</p><h1 class="v">片刻的剖析</h1></div>
         <nav aria-label="系列"><div class="g"><a class="m" href="elements.html">元素</a><a class="s" href="elements.html#color">色彩</a><a class="s" href="elements.html#shape">构形</a><a class="s" href="elements.html#texture">质地</a></div><div class="g"><a class="m" href="relations.html">关系</a><a class="s" href="relations.html#coordination">呼应</a><a class="s" href="relations.html#interaction">互动</a></div><div class="g"><a class="m" href="contrasts.html">对比</a><a class="s" href="contrasts.html#light-shadow">明暗</a><a class="s" href="contrasts.html#artifact-nature">虚实</a><a class="s" href="contrasts.html#stillness-movement">动静</a></div><div class="g"><a class="m" href="studies.html">习作</a><a class="s" href="studies.html#wind">风流</a><a class="s" href="studies.html#distance">支离</a></div></nav>
-        <div class="foot"><p class="year"><span class="y-num">二零一六至二零二六</span><span class="y-gz">丙申至丙午</span></p><p class="name"><a href="https://juan-zhong.github.io/me/">钟娟</a></p></div>
+        <div class="foot"><p class="year">丙申至丙午</p><p class="name"><a href="https://juan-zhong.github.io/me/">钟娟</a></p></div>
         <a class="lang" href="en.html" lang="en">EN</a>
     </main>
 </body></html>

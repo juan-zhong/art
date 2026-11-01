@@ -11,32 +11,22 @@
         @font-face { font-family: 'Optima Fallback'; src: url('fonts/marcellus-latin-400-normal.woff2') format('woff2'); font-display: swap; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { height: 100%; overflow: hidden; }
-        body { background: #4f4f4f; cursor: pointer; }
-        /* A blurred copy of the same photo fills the screen behind it, so the grey sky runs edge to edge */
-        .backdrop { position: fixed; inset: -40px; background: url('photos/themet-backdrop.jpg') center / 100% 100% no-repeat; }
-        .photo { position: fixed; top: 0; left: 50%; height: 100%; width: auto; transform: translateX(-50%);
-                 -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-                         mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-                 user-select: none; -webkit-user-drag: none; }
-        /* Portrait screens (phones): the photo simply fills the screen */
-        @media (max-aspect-ratio: 4/5) {
-            .photo { left: 0; width: 100%; transform: none; object-fit: cover; -webkit-mask-image: none; mask-image: none; }
-        }
-        .shade { position: fixed; inset: 0; background: rgba(0,0,0,.45); opacity: 0; transition: opacity .6s ease; pointer-events: none; }
-        .chosen .shade { opacity: 1; }
-        .choose { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+        /* The photo as it is: whole, uncropped, no fade; the rest of the screen left blank, as when viewing the photos later */
+        body { background: #fdfdfd; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 40px 64px; }
+        .photo { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; user-select: none; -webkit-user-drag: none; }
+        @media (max-width: 600px) { body { padding: 40px 12px; } }
+        /* No overlay: the two choices simply appear in white on the photo, centred on it */
+        .choose { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
                   opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s; cursor: default; }
         .chosen .choose { opacity: 1; visibility: visible; }
-        .choose a { color: #fff; text-decoration: none; font-size: 22px; letter-spacing: .3em; padding: 12px 4px; border-bottom: 1px solid transparent; transition: border-color .2s; }
+        .choose a { color: #fff; text-decoration: none; font-size: 16px; letter-spacing: .3em; padding: 10px 4px; border-bottom: 1px solid transparent; transition: border-color .2s; }
         .choose a:hover, .choose a:focus-visible { border-bottom-color: #fff; outline: none; }
         .choose .en { font-family: 'Optima nova', Optima, 'Optima Fallback', serif; text-transform: uppercase; }
-        .choose .zh { font-family: 'LXGW WenKai Art', 'Kaiti SC', 'STKaiti', serif; font-size: 24px; }
+        .choose .zh { font-family: 'LXGW WenKai Art', 'Kaiti SC', 'STKaiti', serif; font-size: 17px; }
     </style>
 </head>
 <body>
-    <div class="backdrop" aria-hidden="true"></div>
     <img class="photo" src="photos/themet.jpg" width="1498" height="2000" alt="Black-and-white: birds on the bare branches of a pruned tree against a grey sky">
-    <div class="shade" aria-hidden="true"></div>
     <nav class="choose" aria-label="Choose a language">
         <a class="en" href="en.html" lang="en">English</a>
         <a class="zh" href="zh.html" lang="zh-CN">中文</a>
@@ -45,8 +35,7 @@
         (function () {
             var body = document.body;
             function open() { body.classList.add('chosen'); }
-            document.querySelector('.photo').addEventListener('click', open);
-            document.querySelector('.backdrop').addEventListener('click', open);
+            document.body.addEventListener('click', function (e) { if (!e.target.closest('.choose a')) open(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') open(); });
             // remember the choice so other pages can lead back to the right home
             document.querySelectorAll('.choose a').forEach(function (a) {

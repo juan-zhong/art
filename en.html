@@ -21,9 +21,11 @@
         body { background: #fdfdfd; color: #000; font-family: var(--sans); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 48px 20px; }
         a { color: inherit; text-decoration: none; }
         a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-        .lang:lang(zh) { font-family: var(--zh); letter-spacing: .2em; }
-        .lang { position: fixed; top: 18px; right: 24px; font-size: 13px; letter-spacing: .12em; color: #666; }
-        .card { background: #fff; border: 1px solid #e0e0e0; width: min(820px, 100%); padding: 64px 72px 60px 56px; display: grid; grid-template-columns: auto 1fr; column-gap: 44px; }
+        .lang:lang(zh) { font-family: var(--zh); }
+        /* 中: inside the frame, top edge level with "A Typology of", right margin equal to the gap between JUAN and the left frame */
+        .lang { position: absolute; top: 73px; right: 55.5px; font-size: 15px; line-height: 1; color: #666; }
+        .lang:lang(zh) { letter-spacing: 0; }
+        .card { position: relative; background: #fff; border: 1px solid #e0e0e0; width: min(820px, 100%); padding: 64px 72px 60px 56px; display: grid; grid-template-columns: auto 1fr; column-gap: 44px; }
         .name { color: #333; display: flex; flex-direction: column; align-items: center; justify-content: space-between; font-size: 30px; line-height: 1; padding: 2px 0 4px; }
         .name span { display: block; }
         .name .gap { height: .4em; }
@@ -56,12 +58,13 @@
             nav { grid-template-columns: 1fr; row-gap: 22px; margin-top: 30px; }
             nav .subs a { font-size: 16px; }
             .year { font-size: 14px; padding-top: 36px; }
+            .lang { top: 44px; right: 17px; }
         }
     </style>
 </head>
 <body>
-    <a class="lang" href="zh.html" lang="zh-CN">中文</a>
     <main class="card">
+        <a class="lang" href="zh.html" lang="zh-CN">中</a>
         <div class="name" aria-label="Juan Zhong">
             <span>J</span><span>U</span><span>A</span><span>N</span><span class="gap"></span>
             <span>Z</span><span>H</span><span>O</span><span>N</span><span>G</span>
