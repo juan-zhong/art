@@ -35,7 +35,8 @@
         :root { --font-zh: 'LXGW WenKai Art', 'LXGW WenKai', 'Kaiti SC', 'STKaiti', 'Kaiti TC', serif; }
         /* Digits in Limelight; English in Optima; Chinese in LXGW WenKai */
         @font-face { font-family: 'Art Figures'; src: url('fonts/limelight-figures.woff2') format('woff2'); unicode-range: U+0030-0039; font-display: swap; }
-        :root { --font: 'Art Figures', Optima, 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai', serif; }
+        @font-face { font-family: 'Optima Fallback'; src: url('fonts/marcellus-latin-400-normal.woff2') format('woff2'); font-display: swap; }
+        :root { --font: 'Art Figures', Optima, 'Optima Fallback', 'Kaiti SC', 'STKaiti', 'Kaiti TC', 'LXGW WenKai', serif; }
         header h1 a { color: inherit; }
         header .name-zh { margin-top: 10px; }
         /* Back to the two poster homes: the Chinese title leads to the Chinese home, the English title to the English home */
