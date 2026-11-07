@@ -4,6 +4,6 @@
 
 ## License
 
-Art © 2026 Juan Zhong. All rights reserved. Site code is released under CC0 (see `LICENSE-CODE`).
+Art, site design and code © 2026 Juan Zhong. All rights reserved. Fonts are under the SIL Open Font License (see `fonts/`).
 
 © 2026 Juan Zhong
